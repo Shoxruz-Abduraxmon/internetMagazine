@@ -15,7 +15,7 @@ const hbs = exphbs.create({
 });
 
 app.use(express.static('public'));
-
+app.use(express.urlencoded({extended: true}));
 
     /// router papkalarini ulash
 app.use('/', routerHome);
