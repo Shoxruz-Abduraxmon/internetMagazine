@@ -16,13 +16,26 @@ app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index' , {
+        title: 'Home',
+        isHome: true
+    });
 });
 
-app.get('/boshqa', (req, res) => {
-    res.render('boshqa');
+app.get('/Components', (req, res) => {
+    res.render('Components' , {
+        title: 'Canpania',
+        isCanpania: true
+    });
 });
 
+app.get('/JavaScript', (req, res) => {
+    res.render('JavaScript' , {
+        title: 'Routes',
+        isRoutes: true 
+
+    });
+});
 const PORT = process.env.PORT || 1101;
 
 
