@@ -2,6 +2,11 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 
+       /// router papkalari
+const routerHome = require('./router/home');
+const routerJavaScript = require('./router/javaScript');
+const routerComponents = require('./router/components');
+
 const app = express();
 
 const hbs = exphbs.create({
@@ -11,31 +16,16 @@ const hbs = exphbs.create({
 
 app.use(express.static('public'));
 
+
+    /// router papkalarini ulash
+app.use('/', routerHome);
+app.use('/JavaScript', routerJavaScript);
+app.use('/Components', routerComponents);
+
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', 'views');
 
-app.get('/', (req, res) => {
-    res.render('index' , {
-        title: 'Home',
-        isHome: true
-    });
-});
-
-app.get('/Components', (req, res) => {
-    res.render('Components' , {
-        title: 'Canpania',
-        isCanpania: true
-    });
-});
-
-app.get('/JavaScript', (req, res) => {
-    res.render('JavaScript' , {
-        title: 'Routes',
-        isRoutes: true 
-
-    });
-});
 const PORT = process.env.PORT || 1101;
 
 
