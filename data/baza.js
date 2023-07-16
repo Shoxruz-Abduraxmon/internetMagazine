@@ -1,4 +1,6 @@
-// const uuid = require('uuid');
+// const uuid = require('uuidv4');
+const { rejects } = require('assert');
+const { json } = require('express');
 const fs = require('fs');
 const path = require('path');
 
@@ -12,9 +14,35 @@ class Components {
         this.id = null
     }
 
+    TOJSON() {
+        return{
+            img: this.img,
+            name: this.name,
+            vazifasi: this.vazifasi,
+            maosh: this.maosh
+        }
+    }
+
     async save() {
         let kampaniya = await Components.getAll()
-        console.log('kanpaniya', kampaniya);
+        kampaniya.push(this.TOJSON())
+
+        return new Promise((resolve, reject) => {
+            fs.watchFile(
+                path.join(__dirname, '..', 'malumotlarBazasi', 'sklat.json'), 
+                json.stringify(kampaniya),
+                (err) => {
+                    if (err) {
+                        reject (err)
+                    }else {
+                        resolve()
+                    }
+                }
+            )
+        })
+        
+
+        // console.log('kanpaniya', kampaniya);
     }
 
     static getAll() {

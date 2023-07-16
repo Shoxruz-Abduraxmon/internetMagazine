@@ -9,12 +9,12 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     console.log(req.body);
 
 kampaniya = new Components(req.body.img, req.body.name, req.body.vazifasi, req.body.maosh);
 
-kampaniya.save()
+ await kampaniya.save()
     res.redirect('/JavaScript');
 })
 
