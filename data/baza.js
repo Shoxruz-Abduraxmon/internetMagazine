@@ -28,9 +28,9 @@ class Components {
         kampaniya.push(this.TOJSON())
 
         return new Promise((resolve, reject) => {
-            fs.watchFile(
+            fs.writeFile(
                 path.join(__dirname, '..', 'malumotlarBazasi', 'sklat.json'), 
-                json.stringify(kampaniya),
+                JSON.stringify(kampaniya),
                 (err) => {
                     if (err) {
                         reject (err)
