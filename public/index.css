@@ -1,3 +1,7 @@
+body{
+    min-height: 100vh;
+    background: #fafafa;
+  }
 .navbar{
     padding: 1 rem;
 }
