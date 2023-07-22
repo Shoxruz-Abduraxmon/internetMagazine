@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 
+
        /// router papkalari
 const routerHome = require('./router/home');
 const routerJavaScript = require('./router/javaScript');

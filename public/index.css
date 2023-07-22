@@ -2,6 +2,10 @@ body{
     min-height: 100vh;
     background: #fafafa;
   }
-.navbar{
-    padding: 1 rem;
+nav{
+    padding: 0 2 rem;
+}
+
+.maosh{
+    font-size: 2 rem;
 }
