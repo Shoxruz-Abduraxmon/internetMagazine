@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const mysql = require('mysql');
 
 
        /// router papkalari
@@ -15,6 +16,7 @@ const hbs = exphbs.create({
     extname : 'hbs'
 });
 
+
 app.use('/public', express.static('public'));
 app.use(express.urlencoded({extended: true}));
 
@@ -26,6 +28,21 @@ app.use('/Components', routerComponents);
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', 'views');
+
+const db = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'root',
+    password : '',
+    database : 'internetMagazin'
+});
+
+db.connect( (err) => {
+    if (err) {
+        console.log(err)
+    }else{
+        console.log('mysql connect internetMagazin');
+    }
+});
 
 const PORT = process.env.PORT || 1101;
 
