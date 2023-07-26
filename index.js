@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const mysql = require('mysql');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 
        /// router papkalari
@@ -30,10 +33,10 @@ app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 const db = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '',
-    database : 'internetMagazin'
+    host: process.env.DATABASE_host,
+    user: process.env.DATABASE_user,
+    password: process.env.DATABASE_password,
+    database: process.env.DATABASE
 });
 
 db.connect( (err) => {
