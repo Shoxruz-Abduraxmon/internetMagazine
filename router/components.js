@@ -12,10 +12,23 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
     console.log(req.body);
 
-kampaniya = new Components(req.body.img, req.body.name, req.body.vazifasi, req.body.maosh);
+// kampaniya = new Components(req.body.img, req.body.name, req.body.vazifasi, req.body.maosh);
 
- await kampaniya.save()
+const kampaniya = new Kampaniya({
+    img: req.body.img,
+    name: req.body.name,
+    vazifasi: req.body.vazifasi,
+    maosh: req.body.maosh
+});
+
+try{
+    await kampaniya.save()
     res.redirect('/JavaScript');
+}catch (err) {
+    console.log(err);
+}
+
+
 })
 
 module.exports = router
