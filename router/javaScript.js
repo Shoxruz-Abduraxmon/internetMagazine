@@ -3,7 +3,7 @@ const Components = require('../data/baza');
 const router = Router();
 
 router.get('/', async (req, res) => {
-    let kampaniya = await Components.getAll();
+    let kampaniya = await Components.find();
 
     res.render('JavaScript' , {
         title: 'Routes',

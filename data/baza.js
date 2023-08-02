@@ -16,4 +16,4 @@ const kampaniya = new Schema({
     }
 });
 
-module.exports = model('Kampaniya', kampaniya);
+module.exports = model('Components', kampaniya);

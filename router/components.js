@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
 
 // kampaniya = new Components(req.body.img, req.body.name, req.body.vazifasi, req.body.maosh);
 
-const kampaniya = new Kampaniya({
+const kampaniya = new Components({
     img: req.body.img,
     name: req.body.name,
     vazifasi: req.body.vazifasi,
