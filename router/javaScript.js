@@ -13,4 +13,9 @@ router.get('/', async (req, res) => {
     });
 });
 
+
+router.get('/:id', (req, res) => {
+    res.render('maxsulot');
+})
+
 module.exports = router
