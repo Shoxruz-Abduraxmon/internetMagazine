@@ -1,7 +1,8 @@
 const {Schema, model} = require('mongoose');
 
 const kampaniya = new Schema({
-    img : String,
+    img : {type: String,
+        required: true},
     name: {
         type: String, 
         required: true

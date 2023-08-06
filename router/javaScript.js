@@ -3,8 +3,7 @@ const Components = require('../data/baza');
 const router = Router();
 
 router.get('/', async (req, res) => {
-    let kampaniya = await Components.find();
-
+    let kampaniya = await Components.find()
     res.render('JavaScript' , {
         title: 'Routes',
         isRoutes: true,
@@ -14,8 +13,12 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/:id', (req, res) => {
-    res.render('maxsulot');
-})
+// router.get('/:id', async(req, res) => {
+//     const kampaniya = await Components.findById(req.params.id);
+//     res.render('maxsulot', {
+//         layout: 'ikkinchi',
+//         title: `maxsulotlar ${kampaniya.title}` 
+//     });
+// })
 
 module.exports = router
